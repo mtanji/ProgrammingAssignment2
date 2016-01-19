@@ -1,8 +1,16 @@
 ## Put comments here that give an overall description of what your
 ## functions do
 
-## Write a short comment describing this function
-
+#' Creates a vector containing a cacheable matrix inverse
+#' @param x: a square invertible matrix
+#' @return: a list containing functions to
+#'  1. set the matrix \code{x}
+#'  2. get the matrix \code{x}
+#'  3. set the inverse
+#'  4. get the inverse
+#'  this list is used as the input to cacheSolve()
+#' @example 
+#'  makeCacheMatrix(matrix(c(1,2,1,3), nrow = 2, ncol = 2))
 makeCacheMatrix <- function(x = matrix()) {
   i <- NULL
   set <- function(y) {
@@ -18,10 +26,13 @@ makeCacheMatrix <- function(x = matrix()) {
 }
 
 
-## Write a short comment describing this function
-
+#' Calculates matrix's inverse or gets its cached value
+#' @param x: output of makeCacheMatrix()
+#' @return: inverse of the original matrix input to makeCacheMatrix()
+#' @example 
+#'  cacheSolve(makeCacheMatrix(matrix(c(1,2,1,3),nrow = 2, ncol = 2)))
 cacheSolve <- function(x, ...) {
-        ## Return a matrix that is the inverse of 'x'
+  ## Return a matrix that is the inverse of 'x'
   i <- x$getinverse()
   if(!is.null(i)) {
     message("getting cached data")
