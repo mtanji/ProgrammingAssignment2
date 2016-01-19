@@ -1,5 +1,4 @@
-## Put comments here that give an overall description of what your
-## functions do
+## These functions create a special vector for caching matrix inverse and using this vector to calculate the inverse.
 
 #' Creates a vector containing a cacheable matrix inverse
 #' @param x: a square invertible matrix
